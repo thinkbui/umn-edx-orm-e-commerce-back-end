@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Category = require("../../models/Category");
+const {Category, Product} = require("../../models");
 
 
 router.get("/", (req, res) => {
@@ -10,7 +10,9 @@ router.get("/", (req, res) => {
 
 
 router.get("/:id", (req, res) => {
-  Category.findByPk(req.params.id)
+  Category.findByPk(req.params.id, {
+    include: [{ model: Product }],
+  })
     .then( resp => res.json({ status: "success", payload: resp }))
     .catch( err => res.json({ msg: err.message }))
 })
