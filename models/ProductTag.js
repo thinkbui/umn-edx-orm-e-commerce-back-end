@@ -23,6 +23,7 @@ ProductTag.init(
   {
     sequelize,
     timestamps: true,
+    freezeTableName: false,
     underscored: true,
     modelName: 'ProductTag'
   }
