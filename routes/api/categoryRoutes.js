@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Category = require("../../models/Category");
+const {Category, Product} = require("../../models");
 
 
 router.get("/", (req, res) => {
@@ -10,7 +10,9 @@ router.get("/", (req, res) => {
 
 
 router.get("/:id", (req, res) => {
-  Category.findByPk(req.params.id)
+  Category.findByPk(req.params.id, {
+    include: [{ model: Product }],
+  })
     .then( resp => res.json({ status: "success", payload: resp }))
     .catch( err => res.json({ msg: err.message }))
 })
@@ -22,27 +24,27 @@ router.post("/", (req, res) => {
     .catch( err => res.json({ msg: err.message }))
 })
 
-// router.put("/:id", (req, res) => {
-//   Other.update(
-//     req.body,
-//     {
-//       where: {
-//         id: req.params.id
-//       }
-//     }
-//   )
-//     .then( resp => res.json({ status: "success", payload: resp }))
-//     .catch( err => res.json({ msg: err.message }))
-// })
+router.put("/:id", (req, res) => {
+  Category.update(
+    req.body,
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then( resp => res.json({ status: "success", payload: resp }))
+    .catch( err => res.json({ msg: err.message }))
+})
 
-// router.delete("/:id", (req, res) => {
-//   Other.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//   .then( resp => res.json({ status: "success", payload: resp }))
-//   .catch( err => res.json({ msg: err.message }))
-// })
+router.delete("/:id", (req, res) => {
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then( resp => res.json({ status: "success", payload: resp }))
+  .catch( err => res.json({ msg: err.message }))
+})
 
 module.exports = router
