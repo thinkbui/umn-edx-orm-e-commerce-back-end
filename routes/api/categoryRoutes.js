@@ -37,14 +37,14 @@ router.put("/:id", (req, res) => {
     .catch( err => res.json({ msg: err.message }))
 })
 
-// router.delete("/:id", (req, res) => {
-//   Other.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//   .then( resp => res.json({ status: "success", payload: resp }))
-//   .catch( err => res.json({ msg: err.message }))
-// })
+router.delete("/:id", (req, res) => {
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then( resp => res.json({ status: "success", payload: resp }))
+  .catch( err => res.json({ msg: err.message }))
+})
 
 module.exports = router
