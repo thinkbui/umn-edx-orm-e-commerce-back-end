@@ -24,18 +24,18 @@ router.post("/", (req, res) => {
     .catch( err => res.json({ msg: err.message }))
 })
 
-// router.put("/:id", (req, res) => {
-//   Other.update(
-//     req.body,
-//     {
-//       where: {
-//         id: req.params.id
-//       }
-//     }
-//   )
-//     .then( resp => res.json({ status: "success", payload: resp }))
-//     .catch( err => res.json({ msg: err.message }))
-// })
+router.put("/:id", (req, res) => {
+  Category.update(
+    req.body,
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then( resp => res.json({ status: "success", payload: resp }))
+    .catch( err => res.json({ msg: err.message }))
+})
 
 // router.delete("/:id", (req, res) => {
 //   Other.destroy({
