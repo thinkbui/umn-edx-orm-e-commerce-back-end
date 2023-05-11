@@ -1,23 +1,21 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Other extends Model {}
+class Tag extends Model {}
 
-Other.init(
+Tag.init(
   {
-    name: {
+    tag_name: {
       type: DataTypes.STRING
-    },
-    qty: {
-      type: DataTypes.INTEGER
     },
   },
   {
     sequelize,
     timestamps: true,
+    freezeTableName: false,
     underscored: true,
-    modelName: 'Other'
+    modelName: 'Tag'
   }
 );
 
-module.exports = Other;
+module.exports = Tag;
