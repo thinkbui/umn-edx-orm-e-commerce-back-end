@@ -11,4 +11,5 @@ This is just a concept and the scope of it is quite limited.  For instance, the 
 
 In addition while seeds for the ProductTag model were created to show the many-to-many relationship between Product and Tag in action, no requirements for creating/modifying this relationship via the web API endpoints were detailed and therefore were not implemented in this project.
 
-[YouTube](https://www.youtube.com/watch?v=vXJJThoRjDQ)
+## DEMO
+You can view a demo of the app on [YouTube](https://www.youtube.com/watch?v=vXJJThoRjDQ).
