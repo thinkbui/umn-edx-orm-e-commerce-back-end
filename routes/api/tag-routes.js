@@ -15,7 +15,13 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   Tag.findByPk(req.params.id, {
-    include: [{ model: Product }],
+    include: [
+      {
+        model: Product,
+        through: ProductTag,
+        as: 'products'
+      }
+    ],
   })
     .then( resp => res.json({ status: "success", payload: resp }))
     .catch( err => res.json({ msg: err.message }))

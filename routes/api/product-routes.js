@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         model:Category,
         model:Tag,
         through: ProductTag,
-        as: 'product_tags'
+        as: 'tags'
       }
     ]
   })
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
         model:Category,
         model:Tag,
         through: ProductTag,
-        as: 'product_tags'
+        as: 'tags'
       }
     ]
   })
