@@ -15,3 +15,5 @@ This is just a concept and the scope of it is quite limited.  For instance, the 
 
 ## DEMO
 You can view a demo of the app on [YouTube](https://www.youtube.com/watch?v=IrPmCTBFH2Y).
+
+![Screenshot](./assets/images/maxresdefault.jpg)
